@@ -6,7 +6,7 @@ services:
     volumes:
       - mongo_data_container:/data/db
   
-  mariadb
+  mariadb:
     image: mariadb:latest
     ports:
       - 3306:3306

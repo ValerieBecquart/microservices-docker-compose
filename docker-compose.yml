@@ -18,7 +18,7 @@ services:
   users-service:
     depends_on:
       - mongo
-    image: ValerieBecquart/users_service2
+    image: valeriebecquart/users_service2
     ports:
       - 8052:8052
     links:
@@ -30,7 +30,7 @@ services:
   game-service:
     depends_on:
       - mariadb
-    image: ValerieBecquart/game_service
+    image: valeriebecquart/game_service
     ports:
       - 8051:8051
     links:
@@ -44,7 +44,7 @@ services:
     depends_on:
       - users-service
       - game-service
-    image: ValerieBecquart/edgeService
+    image: valeriebecquart/edgeservice
     ports:
       - 8053:8053
     links:

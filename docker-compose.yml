@@ -16,7 +16,7 @@ services:
       MARIADB_ROOT_PASSWORD: abc123
 
   users-service:
-    depends on:
+    depends_on:
       - mongo
     image: ValerieBecquart/users_service2
     ports:
@@ -28,7 +28,7 @@ services:
       MONGODB_HOST: mongo
 
   game-service:
-    depends on:
+    depends_on:
       - mariadb
     image: ValerieBecquart/game_service
     ports:
@@ -41,12 +41,18 @@ services:
       MARIADB_HOST: mariadb
 
   edge-service:
-    depends on:
+    depends_on:
       - users-service
       - game-service
     image: ValerieBecquart/edgeService
     ports:
       - 8053:8053
+    links:
+      - users_service2
+      - game_service
+    environment:
+      USER_SERVICE_BASEURL: user-service:8052
+      GAME_SERVICE_BASEURL: game-service:8051
 
 volumes:
   mongodb_data_container:

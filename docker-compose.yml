@@ -48,7 +48,6 @@ services:
     ports:
       - 8053:8053
     links:
-      - users_service2
       - game_service
     environment:
       - USER_SERVICE_BASEURL: users-service:8052

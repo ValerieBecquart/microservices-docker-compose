@@ -39,6 +39,7 @@ services:
       MARIADB_USERNAME: root
       MARIADB_PASSWORD: abc123
       MARIADB_HOST: mariadb
+      MARIADB_PORT: 3306
 
   edge-service:
     depends_on:

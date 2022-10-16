@@ -52,7 +52,7 @@ services:
       - users_service2
       - game_service
     environment:
-      USER_SERVICE_BASEURL: user-service:8052
+      USER_SERVICE_BASEURL: users-service:8052
       GAME_SERVICE_BASEURL: game-service:8051
 
 volumes:
